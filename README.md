@@ -6,7 +6,7 @@
 * `flask` 实现Web控制界面
 * `h5py` 实现结果HDF5格式存储
 
-已发布到Docker Hub：(https://hub.docker.com/r/wnjxyk/simple_distributed_matrix)[https://hub.docker.com/r/wnjxyk/simple_distributed_matrix]，可以在这个网址拉取镜像并且测试。
+已发布到Docker Hub：(https://hub.docker.com/r/wnjxyk/simple_distributed_matrix)[https://hub.docker.com/r/wnjxyk/simple_distributed_matrix]  ，可以在这个网址拉取镜像并且测试。
 
 ## 如何使用
 
