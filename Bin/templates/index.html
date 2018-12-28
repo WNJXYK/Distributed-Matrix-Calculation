@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Distributed Calculation">
+        <meta name="author" content="WNJXYK">
+
+        <title>Distributed Matrix Calculation</title>
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <main role="main" class="container">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">Host</div>
+                        <div class="container">
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"> <span class="input-group-text">Address: </span> </div>
+                                        <input type="text" id = "host_ip" class="form-control" value = "0.0.0.0" disabled>
+                                        <div class="input-group-prepend"> <span class="input-group-text"> : </span> </div>
+                                        <input type="text" id = "host_port" class="form-control" value = "51234">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"> <span class="input-group-text">Authenticate: </span> </div>
+                                        <input type="text" id = "host_auth" class="form-control" value = "Matrix_Method">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col" id="host_status" >
+                                    <button type="button" class="btn btn-danger form-control"  disabled>Stopped</button>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary form-control" id="host_switch">Start</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">Worker</div>
+                        <div class="container">
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"> <span class="input-group-text">Address: </span> </div>
+                                        <input type="text" id = "worker_ip" class="form-control" value = "127.0.0.1">
+                                        <div class="input-group-prepend"> <span class="input-group-text"> : </span> </div>
+                                        <input type="text" id = "worker_port" class="form-control" value = "51234">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"> <span class="input-group-text">Authenticate: </span> </div>
+                                        <input type="text" id = "worker_auth" class="form-control" value = "Matrix_Method">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col" id="worker_status">
+                                    <button type="button" class="btn btn-danger form-control" disabled>Stoppped</button>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary form-control" id="worker_switch">Start</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+
+            <div class="card" id="task_panel">
+                <div class="card-header">Task</div>
+                <div class="container">
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend"> <span class="input-group-text">Matrix Size: </span> </div>
+                                <input type="text" id = "matrix_size" class="form-control" value = "1024">
+                                <div class="input-group-prepend"> <span class="input-group-text">Block Size: </span> </div>
+                                <input type="text" id = "block_size" class="form-control" value = "256">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary form-control" id="inverse_task">Inverse Task</button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-primary form-control" id="multiply_task">Multiply Task</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend"> <span class="input-group-text">Type: </span> </div>
+                                <input type="text" id = "task_type" class="form-control" value = "">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend"> <span class="input-group-text">Status: </span> </div>
+                                <input type="text" id = "task_status" class="form-control" value = "None">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend"> <span class="input-group-text">Epoch: </span> </div>
+                                <input type="text" id = "task_epoch" class="form-control" value = "0/0">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend"> <span class="input-group-text">Unit: </span> </div>
+                                <input type="text" id = "task_unit" class="form-control" value = "0/0">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend"> <span class="input-group-text">Time: </span> </div>
+                                <input type="text" id = "task_time" class="form-control" value = "">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="card-footer" id="download">
+                    <a class="btn btn-info form-control" href="#">Not Available</a>
+                </div>
+            </div>
+        </main>
+
+        <div id="alert_modal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal_title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p id="modal_body">Modal body text goes here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script>
+            function alertMessage(status, data){
+                if (status==1) $('#modal_title').html("Success"); else $('#modal_title').html("Failed");
+                $('#modal_body').html(data);
+                $('#alert_modal').modal('show');
+            }
+
+            function newTask(target_url){
+                $.ajax({
+                    url : target_url,
+                    type : "POST",
+                    data:{
+                        size : $("#matrix_size").val(),
+                        block : $("#block_size").val()
+                    },
+                    timeout : 10,
+                    dataType : "text",
+                    success : function(data){
+                        arr = JSON.parse(data);
+                        alertMessage(arr["status"], arr["message"]);
+                    },
+                    error : function(){}
+                });
+            }
+
+            $("#inverse_task").click(function(){ newTask("/inv_task"); });
+            $("#multiply_task").click(function(){ newTask("/mul_task"); });
+
+            $("#host_switch").click(
+                function(){
+                    if ($("#host_switch").html() == "Start"){
+                        $.ajax({
+                            url : "/start_host",
+                            type : "POST",
+                            data:{
+                                port : $("#host_port").val(),
+                                auth : $("#host_auth").val()
+                            },
+                            timeout : 1000,
+                            dataType : "text",
+                            success : function(data){
+                                arr = JSON.parse(data);
+                                alertMessage(arr["status"], arr["message"]);
+                            },
+                            error : function(){}
+                        });
+                    }else{
+                        $.post("/terminate_host", function(data, status){
+                            arr = JSON.parse(data);
+                            alertMessage(arr["status"], arr["message"]);
+                        });
+                    }
+                    $("#host_switch").attr('disabled',"true");
+                }
+            );
+
+            $("#worker_switch").click(
+                function(){
+                    if ($("#worker_switch").html() == "Start"){
+                        $.ajax({
+                            url : "/start_worker",
+                            type : "POST",
+                            data:{
+                                ip : $("#worker_ip").val(),
+                                port : $("#worker_port").val(),
+                                auth : $("#worker_auth").val()
+                            },
+                            timeout : 1000,
+                            dataType : "text",
+                            success : function(data){
+                                arr = JSON.parse(data);
+                                alertMessage(arr["status"], arr["message"]);
+                            },
+                            error : function(){}
+                        });
+                    }else{
+                        $.post("/terminate_worker", function(data, status){
+                            arr = JSON.parse(data);
+                            alertMessage(arr["status"], arr["message"]);
+                        });
+                    }
+                    $("#worker_switch").attr('disabled',"true");
+                }
+            );
+
+            $("#refresh_tasks").click(
+                function(){
+                    $.get("/tasks", function(data, status){
+                        arr = JSON.parse(data);
+                        str = '';
+                        for(var i in arr){
+                            str = str + '<li class="list-group-item"><div class="row"><div class="col"><span>';
+                            str = str + '# ' + arr[i].id + " - " + arr[i].name + '<br>';
+                            str = str + "Time : " + arr[i].time + '<br>';
+                            str = str + 'Type = ' + arr[i].type + ' | Subtasks = ' + arr[i].tasks + ' | processing = ' + arr[i].process + '<br>';
+                            str = str + '</span></div></div><div class="progress"><div class="progress-bar" role="progressbar" style="width: '+arr[i].percentage+'%;" aria-valuenow="'+arr[i].percentage+'" aria-valuemin="0" aria-valuemax="100">'+arr[i].percentage+'%</div></div></li>';
+                        }
+                        $("#task_list").html(str)
+                    });
+                }
+            );
+
+            auto_refresh = setInterval(function(){
+                $.post("/query_task", function(data, status){
+                    arr = JSON.parse(data);
+                    $("#task_type").val(arr["type"]);
+                    $("#task_status").val(arr["status"]);
+                    $("#task_epoch").val(arr["epoch"] + "/" + arr["max_epoch"]);
+                    $("#task_unit").val(arr["unit"] + "/" + arr["max_unit"]);
+                    $("#task_time").val(arr["time"] + " S");
+                    if (arr["status"].indexOf("Saved") != -1){
+                        $("#download").html('<a class="btn btn-info form-control" href="/download">Download HDF5 File</a>');
+                    }else $("#download").html('<a class="btn btn-info form-control" href="#">Not Available</a>');
+                });
+                $.post("/query_worker", function(data, status){
+                    arr = JSON.parse(data);
+                    if (arr["status"] == 0){
+                        $("#worker_status").html('<button type="button" class="btn btn-danger form-control" disabled>Stopped</button>');
+                        $("#worker_switch").html('Start');
+                    }else{
+                        $("#worker_status").html('<button type="button" class="btn btn-success form-control" disabled>Running</button>');
+                        $("#worker_switch").html('Terminate');
+                    }
+                    $("#worker_switch").removeAttr("disabled");
+                });
+                $.post("/query_host", function(data, status){
+                    arr = JSON.parse(data);
+                    if (arr["status"] == 0){
+                        $("#host_status").html('<button type="button" class="btn btn-danger form-control" disabled>Stopped</button>');
+                        $("#host_switch").html('Start');
+                        $("#task_panel").hide();
+                    }else{
+                        $("#host_status").html('<button type="button" class="btn btn-success form-control" disabled>Running</button>');
+                        $("#host_switch").html('Terminate');
+                        $("#task_panel").show();
+                    }
+                    $("#host_switch").removeAttr("disabled");
+                });
+            }, 500);
+        </script>
+    </body>
+</html>
+
