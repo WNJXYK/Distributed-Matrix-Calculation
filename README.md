@@ -6,7 +6,7 @@
 * `flask` 实现Web控制界面
 * `h5py` 实现结果HDF5格式存储
 
-已发布到Docker Hub：(https://hub.docker.com/r/wnjxyk/simple_distributed_matrix)[https://hub.docker.com/r/wnjxyk/simple_distributed_matrix]  ，可以在这个网址拉取镜像并且测试。
+已发布到Docker Hub：[https://hub.docker.com/r/wnjxyk/simple_distributed_matrix](https://hub.docker.com/r/wnjxyk/simple_distributed_matrix) ，可以在这个网址拉取镜像并且测试。
 
 ## 如何使用
 
@@ -31,4 +31,4 @@ docker run -d -it -p 8084:80 --cpus=0.01 matrix python /root/Distributed_Matrix_
 
 
 ## 效果测试
-效果测试可以参考Doc目录下的简易描述：(Doc)[https://github.com/WNJXYK/Distributed-Matrix-Calculation/blob/master/Doc/Docker.md]
+效果测试可以参考Doc目录下的简易描述：[Doc](https://github.com/WNJXYK/Distributed-Matrix-Calculation/blob/master/Doc/Docker.md)
