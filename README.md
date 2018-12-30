@@ -31,4 +31,4 @@ docker run -d -it -p 8084:80 --cpus=0.01 matrix python /root/Distributed_Matrix_
 
 
 ## 效果测试
-效果测试可以参考Doc目录下的简易描述：[Doc](https://github.com/WNJXYK/Distributed-Matrix-Calculation/blob/master/Doc/Documents.pdf)
+效果测试可以参考Doc目录下的简易描述：[PDF](https://github.com/WNJXYK/Distributed-Matrix-Calculation/blob/master/Doc/Documents.pdf) / [Markdown](https://github.com/WNJXYK/Distributed-Matrix-Calculation/blob/master/Doc/Documents.md)
