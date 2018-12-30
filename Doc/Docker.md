@@ -69,7 +69,11 @@ docker run -d -it -p 8084:80 --cpus=0.01 matrix python /root/Distributed_Matrix_
 
 #### Step Three : 正确性测试
 
-控制面板会自动测试结果的正确性，如果显示结果为`Correct`就可以判断结果是正确的。同时系统会讲结果存储为一个HDF5格式的文件，可以点击最下面的按钮进行下载，然后使用HDF Viewer进行浏览与检验。
+控制面板会自动测试结果的正确性，如果显示结果为`Correct`就可以判断结果是正确的。同时系统会讲结果存储为一个HDF5格式的文件，可以点击最下面的按钮进行下载，然后使用HDF View进行浏览与检验。
+
+其中`Ans`数据集是我们分布式计算出来的答案，`Check`数据集是使用Numpy计算出来的答案，可以通过图片粗略的观察的值，答案是正确的。
+![乘法结果比对](https://raw.githubusercontent.com/WNJXYK/Distributed-Matrix-Calculation/master/Doc/MultiCompare.png)
+![逆元结果比对](https://raw.githubusercontent.com/WNJXYK/Distributed-Matrix-Calculation/master/Doc/InvCompare.png)
 
 
 
