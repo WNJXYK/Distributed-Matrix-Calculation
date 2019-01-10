@@ -8,6 +8,8 @@
 
 已发布到Docker Hub：[https://hub.docker.com/r/wnjxyk/simple_distributed_matrix](https://hub.docker.com/r/wnjxyk/simple_distributed_matrix) ，可以在这个网址拉取镜像并且测试。
 
+This is a really big change.
+
 ## 如何使用
 
 1. 首先从镜像仓库拉取本镜像。
